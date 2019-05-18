@@ -153,14 +153,14 @@ public class Main {
 
     private static void createSystem(){
         Composite folder1 = new Composite("folder1");
-        Composite folder2 = new Composite("folder12");
-        Composite folder3 = new Composite("folder13");
+        Composite folder2 = new Composite("folder2");
+        Composite folder3 = new Composite("folder3");
         Composite folder11 = new Composite("folder11");
         Composite folder12 = new Composite("folder12");
         Composite folder13 = new Composite("folder13");
         Composite folder111 = new Composite("folder111");
         Composite folder112 = new Composite("folder112");
-        Leaf l1 = new Leaf("text");
+        Composite folder113 = new Composite("folder113");
         root.add(folder1);
         root.add(folder2);
         root.add(folder3);
@@ -169,6 +169,10 @@ public class Main {
         folder1.add(folder13);
         folder11.add(folder111);
         folder11.add(folder112);
-        folder11.add(l1);
+        folder11.add(folder113);
+        Leaf l1 = new Leaf("text");
+        Leaf l2 = new Leaf("text");
+        folder1.add(l1);
+        folder113.add(l2);
     }
 }
