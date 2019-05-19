@@ -24,13 +24,13 @@ public class Composite implements Component {
 
     public Component getComponentByName(String name){
         for(Component con : list){
-            if(con.getName().equals(name)){
+            if(con.getName().equalsIgnoreCase(name)){
                 return con;
             }
         }
         return this;
     }
-
+    
     public void printPath() {
         if (parent != null) {
             parent.printPath();
