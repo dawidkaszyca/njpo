@@ -21,38 +21,37 @@ public class Main {
             root.printPath();
             command = sc.nextLine();
             command = command.trim();
-            command = command.toLowerCase();
-            if(command.equals("cd..")){
+            if(command.equalsIgnoreCase("cd..")){
                 undoParents();
             }
-            else if(command.equals("help")){
+            else if(command.equalsIgnoreCase("help")){
                 printHelp();
             }
-            else if(command.equals("date")){
+            else if(command.equalsIgnoreCase("date")){
                 showDate();
             }
-            else if(command.equals("time")){
+            else if(command.equalsIgnoreCase("time")){
                 showTime();
             }
-            else if(command.equals("exit")){
+            else if(command.equalsIgnoreCase("exit")){
                 break;
             }
-            else if(command.contains("mkdir ")){
+            else if(command.toLowerCase().startsWith("mkdir ")){
                 makeDir(command);
             }
-            else if(command.contains("create ")){
+            else if(command.toLowerCase().startsWith("create ")){
                 makeNotepad(command);
             }
-            else if(command.contains("cd ")){
+            else if(command.toLowerCase().startsWith("cd ")){
                 changePath(command);
             }
-            else if(command.contains("rename ")){
+            else if(command.toLowerCase().startsWith("rename ")){
                 rename(command);
             }
-            else if(command.equals("dir")){
+            else if(command.equalsIgnoreCase("dir")){
                 root.printList();
             }
-            else if(command.contains("echo ")){
+            else if(command.toLowerCase().startsWith("echo ")){
                 command = command.substring(5);
                 System.out.println(command);
             }
@@ -71,10 +70,6 @@ public class Main {
         command = command.trim();
         Component con = root.getComponentByName(command);
         if(con == root){
-            Component newFile = new Leaf(command);
-            root.add(newFile);
-        }
-        else if (con instanceof Composite){
             Component newFile = new Leaf(command);
             root.add(newFile);
         }
@@ -139,15 +134,15 @@ public class Main {
     }
     private static void printHelp(){
         System.out.println("CD <name folder>      change directory\n" +
-                           "CD..                  return to the previous directory\n" +
-                           "CREATE                Create a new txt file\n" +
-                           "DATE                  show date\n" +
-                           "DIR                   list directory content\n" +
-                           "ECHO                  text output\n" +
-                           "EXIT                  exits the command prompt or a batch file\n" +
-                           "MKDIR                 create a new directory\n" +
-                           "RENAME                rename files\n" +
-                           "TIME                  display the system time\n"
+                "CD..                  return to the previous directory\n" +
+                "CREATE                Create a new txt file\n" +
+                "DATE                  show date\n" +
+                "DIR                   list directory content\n" +
+                "ECHO                  text output\n" +
+                "EXIT                  exits the command prompt or a batch file\n" +
+                "MKDIR                 create a new directory\n" +
+                "RENAME                rename files\n" +
+                "TIME                  display the system time\n"
         );
     }
 
