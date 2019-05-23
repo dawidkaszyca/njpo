@@ -23,7 +23,7 @@ public class Main {
         book.addChapter(new Leaf("First chapter"));
         book.addChapter(book1);
         book.addChapter(new Leaf("Third chapter"));
-
+        book.print();
 
 
     }
